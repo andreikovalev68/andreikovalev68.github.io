@@ -65,6 +65,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .phone.live .screen img{animation-play-state:running}
 .phone .notch{position:absolute;top:calc(var(--pw,250px) * .055);left:50%;transform:translateX(-50%);width:28%;height:calc(var(--pw,250px) * .06);background:#0E0F13;border-radius:999px;z-index:2}
 @keyframes scrollshot{0%,8%{transform:translateY(0)}92%,100%{transform:translateY(var(--shift,-70%))}}
+
 .fan{position:relative;height:clamp(440px,52vw,600px)}
 .fan .phone{position:absolute;top:50%;left:50%}
 .fan .phone:nth-child(1){--pw:clamp(190px,21vw,262px);transform:translate(-50%,-50%);z-index:3}
@@ -284,7 +285,7 @@ footer{padding:26px 0 40px;color:var(--ink-3);font-size:14px;display:flex;flex-w
   // живой телефон
   const phone = (c, dur) => `<div class="phone" style="--dur:${dur}s"><div class="notch"></div><div class="screen">${c.mobile ? `<img src="${esc(c.mobile)}" alt="Сайт ${esc(c.title)} на телефоне" loading="lazy" data-shift>` : ''}</div></div>`;
   const fan = $('fan');
-  const heroPick = ['Валерий Щербаков', 'Ла Росса', 'Светлое место'];
+  const heroPick = ['Проверенный автоимпорт', 'Ла Росса', 'Светлое место'];
   const withShots = heroPick.map((t) => cases.find((c) => c.title === t && c.mobile)).filter(Boolean);
   if (withShots.length) fan.innerHTML = withShots.slice(0, 3).map((c, i) => phone(c, 20 + i * 4)).join('');
   else { fan.classList.add('empty'); fan.textContent = 'Здесь появятся ваши работы: скажите Клоду «добавь в витрину сайт …»'; }
